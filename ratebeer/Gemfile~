@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+
 
 
 
@@ -40,7 +39,11 @@ group :production do
    gem 'rails_12factor'
 end
 
-ruby '2.2.0'
+#ruby ENV['CUSTOM_RUBY_VERSION'] || '2.0.0-dev'
+
+#ruby '2.2.0' 
+
+gem 'rails', '4.0.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
