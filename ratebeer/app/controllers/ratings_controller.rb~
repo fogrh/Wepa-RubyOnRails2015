@@ -1,0 +1,15 @@
+class RatingsController < ApplicationController
+
+  def index
+	@ratings = Rating.all
+  end
+
+  def show
+  end
+
+  def new
+    @ratings = Rating.new
+  end
+
+
+end
