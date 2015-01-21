@@ -39,7 +39,13 @@ group :production do
    gem 'rails_12factor'
 end
 
-#ruby ENV['CUSTOM_RUBY_VERSION'] || '2.0.0-dev'
+group :development, :test do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+end
+group :development, :test do
+  gem "better_errors"
+end
 
 ruby '2.2.0' 
 
