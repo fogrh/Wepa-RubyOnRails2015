@@ -56,7 +56,7 @@ class BreweriesController < ApplicationController
   def destroy
     @brewery.destroy
     respond_to do |format|
-      format.html { redirect_to breweries_url }
+      format.html { redirect_to breweries_path }
       format.json { head :no_content }
     end
   end
