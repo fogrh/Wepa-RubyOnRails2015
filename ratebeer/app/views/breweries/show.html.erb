@@ -5,6 +5,10 @@
 <p>
   <i>Established in <%= @brewery.year %></i>
 </p>
+<p>
+Has <%= pluralize(@brewery.beers.count, 'beer') %> with <%= pluralize(@brewery.ratings.count, 'rating') %>.
+ Average rating of this brewery's products: <%= @brewery.average_rating %>
+</p>
 
 
 	<p>
@@ -15,9 +19,5 @@
 	</p>
 </p>
 <p>
-	<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
-	<%= link_to 'Back', breweries_path %>
-</p>
-<p>
-	<%= link_to'list of beers', beers_path %>
+	<%= link_to 'Edit', edit_brewery_path(@brewery) %>
 </p>

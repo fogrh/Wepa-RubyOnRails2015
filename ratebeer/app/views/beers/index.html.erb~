@@ -14,8 +14,7 @@
 
   <tbody>
     <% @beers.each do |beer| %>
-	<%if beer.brewery.nil? %>
-	beer.destroy
+	<% beer.destroy if beer.brewery.nil? %>
       <tr>
         <td><%= link_to beer.name, beer %></td>
         <td><%= beer.style %></td>

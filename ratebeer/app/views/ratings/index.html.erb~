@@ -3,12 +3,12 @@
 <p>
 	<ul>
   <% @ratings.each do |rating| %>
- <% byebug if rating.beer.nil? %>
+ <% rating.destroy if rating.beer.nil? %>
     <li> <%= rating %> <%= link_to 'delete', rating, method: :delete , data: { confirm: 'Are you sure?' }%> </li>
   <% end %>
 </ul>
 </p>
 <h3>
-<%= link_to 'Add new rating', ratings_new_path %>
+<%= link_to 'Add new rating', new_rating_path %>
 </h3>
 
