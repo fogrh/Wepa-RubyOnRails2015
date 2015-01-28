@@ -15,11 +15,9 @@ class RatingsController < ApplicationController
    end
 
    def destroy
-      @rating.destroy
-      respond_to do |format|
-      format.html { redirect_to ratings_path }
-      format.json { head :no_content }
-    end
+    rating = Rating.find(params[:id])
+    rating.delete
+    redirect_to ratings_path
   end
 
 
