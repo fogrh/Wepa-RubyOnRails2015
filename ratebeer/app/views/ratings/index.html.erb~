@@ -3,8 +3,8 @@
 <p>
 	<ul>
   <% @ratings.each do |rating| %>
- <% rating.destroy if rating.beer.nil? %>
-    <li> <%= rating %> <%= link_to 'delete', rating, method: :delete , data: { confirm: 'Are you sure?' }%> </li>
+ <% byebug if rating.beer.nil? %>
+    <li> <%= rating %> <%= link_to rating.user.username, user_path(current_user)%> </li>
   <% end %>
 </ul>
 </p>
