@@ -1,5 +1,9 @@
 Ratebeer::Application.routes.draw do
 
+  resources :memberships
+
+  resources :beer_clubs
+
   root 'breweries#index'
   resources :beers
   resources :breweries

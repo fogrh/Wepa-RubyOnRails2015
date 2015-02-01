@@ -5,13 +5,24 @@
 </h2>
 
 <p>
+<% if not @user.memberships.empty? %>
+Part of <%=pluralize(@user.memberships.count, 'beer club') %>:
+<% end %>
+<% @user.clubs.each do |r| %> 
+<td><%= link_to  r.name, beer_club_path(r) %></td>
+<% end %>
+</p>
+
+<p>
  <% if @user.ratings.empty? %>
  No ratings yet.
  <% else %>
  Has made <%=pluralize(@user.ratings.count, 'rating') %>.
  Average rating: <%= @user.average_rating %>
 <% end %>
-<p>
+</p>
+
+
 
 <table>
  <thead>
@@ -25,7 +36,7 @@
     <% @user.ratings.each do |r| %>
       <tr>
 	<td><%= r.beer.name %></td> 
-    	<td> - <%= r.score %></td>
+    	<td> | <%= r.score %></td>
 	<% if @user == current_user %>
 	<td><%= link_to 'Delete', r, method: :delete, data: {confirm: 'Are ya shuuure?'} %></td>
 	<% end %>
