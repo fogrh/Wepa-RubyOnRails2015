@@ -8,8 +8,8 @@
 <% if not @user.memberships.empty? %>
 Part of <%=pluralize(@user.memberships.count, 'beer club') %>:
 <% end %>
-<% @user.memberships.each do |r| %> 
-<td><%= link_to  r.findClub.name, beer_club_path(r.findClub) %></td>
+<% @user.clubs.each do |r| %> 
+<td><%= link_to  r.name, beer_club_path(r) %></td>
 <% end %>
 </p>
 
@@ -18,11 +18,13 @@ Part of <%=pluralize(@user.memberships.count, 'beer club') %>:
  No ratings yet.
  <% else %>
  Has made <%=pluralize(@user.ratings.count, 'rating') %>.
- Average rating: <%= @user.average_rating %>
+ Average rating: <%= @user.average_rating %>.
+<p>
+ Favorite beer style: <%= @user.favorite_style %>.
+ Favorite brewery: <%= @user.favorite_brewery %>
+</p>
 <% end %>
 </p>
-
-
 
 <table>
  <thead>
