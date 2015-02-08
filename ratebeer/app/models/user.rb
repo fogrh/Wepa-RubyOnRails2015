@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
 	validates :username, uniqueness: true, length: { minimum: 3, maximum: 15 }
 	validates :password, format: { with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{4,}\z/, message: "Password must contain atleast one uppercase letter, a number and be longer than 3 characters." }
 
-	
+	def favorite_beer
+	return nil if ratings.empty?
+   	ratings.order(score: :desc).limit(1).first.beer	
+	end
 	
 end

@@ -1,6 +1,6 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
-  before_action :set_breweries_and_styles_for_template, only: [:new, :edit]
+  before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
 
   # GET /beers
   # GET /beers.json
@@ -16,6 +16,7 @@ class BeersController < ApplicationController
   # GET /beers/new
   def new
     @beer = Beer.new
+    set_breweries_and_styles_for_template
   end
 
   def set_breweries_and_styles_for_template
