@@ -4,6 +4,8 @@ describe "Beers page" do
 
  before :each do
     FactoryGirl.create(:brewery)
+    FactoryGirl.create(:user)
+    sign_in(username:"Pekka", password:"Foobar1")
   end
 
   describe "a new beer is" do
