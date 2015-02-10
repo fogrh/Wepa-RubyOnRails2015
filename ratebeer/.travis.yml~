@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 1.9.3
+- 2.0.0
 script:
 - bundle exec rake db:migrate --trace
 - RAILS_ENV=test bundle exec rake db:migrate --trace
@@ -13,4 +13,4 @@ deploy:
   app: fogrh-wepa
   run: "rake db:migrate"
   on:
-    repo: fogrh/Wepa-RubyOnRails2015
+    repo: fogrh/Wepa-RubyOnRails2015/tree/ratebeer
